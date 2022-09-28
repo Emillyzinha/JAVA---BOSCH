@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ex_coalisao {
@@ -85,11 +86,16 @@ public class ex_coalisao {
             System.out.println("\nDeseja executar o programa novamente?" +
                     "\n Digite a tecla '1' para 'sim' ou qaulquer outra tecla para 'não' ");
             resposta = x.nextInt();
-            if (resposta == 1) {
-                continue;
-            }
-            else{
-                break;
+            try {
+                if (resposta == 1) {
+                    continue;
+                } else {
+                    System.out.println("Até a próxima!");
+                    break;
+                }
+            }catch (InputMismatchException f){
+                x.nextLine();
+                System.out.println("Até a próxima!");
             }
         }
 
